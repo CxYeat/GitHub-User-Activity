@@ -22,6 +22,7 @@ class GitHubActivity:
         #print(json.dumps(events, indent=2))
         return events
 
+
     def parse_events(self, events : list):
         for idx,event in enumerate(events, start = 1):
             event_type = event.get("type")
@@ -56,6 +57,3 @@ class GitHubActivity:
             return dt.strftime(output_format)
         except Exception:
             return iso_str  # fallback if format broken
-
-
-

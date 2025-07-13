@@ -1,5 +1,3 @@
-from os import close
-
 import github_activity
 from github_activity import GitHubActivity
 
@@ -21,20 +19,30 @@ def print_banner():
 ╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░░╚═╝░░░╚═╝░░░╚═╝░░░░░░╚═╝░░░
     """
     print(banner)
-    print("Welcome to GitHubActivity 🚀\n")
+    print("Welcome to GitHubActivity \n")
 
 def input_name():
     while True:
-        input_name = input("Enter the GitHub username: ")
-        github_acc = GitHubActivity(input_name)
-        github_events = github_acc.get_user_events()
-        github_acc.parse_data(github_events)
-        cont = input("Do you want to continue? (y/n): ")
-        if cont.lower() == "y":
-            pass
+        username = input("Enter the GitHub username: ")
+        github_acc = GitHubActivity(username)
+        try:
+            github_events = github_acc.get_user_events()
+            github_acc.parse_events(github_events)
+        except Exception as e:
+            print(f" Error: {e}")
+            retry = input("Try another username? (y/n): ")
+            if retry.lower() == "y":
+                continue
+            else:
+                print("Bye!")
+                break
         else:
-            print("Thanks for using my script! See you next time!")
-            break
+            cont = input("Do you want to check another user? (y/n): ")
+            if cont.lower() == "y":
+                continue
+            else:
+                print("Thanks for using GitHubActivity!")
+                break
 
 def main():
     print_banner()
