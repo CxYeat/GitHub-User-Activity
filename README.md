@@ -31,7 +31,7 @@ git clone https://github.com/CxYeat/GitHub-User-Activity.git
 cd github-activity-cli
 ```
 
-🚧 Work in Progress 🚧
+## 🚧 Work in Progress 🚧
 
 This project is currently under active development.
 Features are being added and improved continuously.
