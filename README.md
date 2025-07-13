@@ -29,3 +29,12 @@ No installation needed — just clone the repo or copy the script.
 ```bash
 git clone https://github.com/CxYeat/GitHub-User-Activity.git
 cd github-activity-cli
+```
+
+🚧 Work in Progress 🚧
+
+This project is currently under active development.
+Features are being added and improved continuously.
+Expect some rough edges and incomplete functionality for now.
+
+Feel free to contribute or provide feedback!
