@@ -1,5 +1,17 @@
-def start_screen():
-    print("Welcome to the GitHub CLI! Every command starts with \"github-activity\"."
-          " For more Information, please use the -h parameter!")
-    github_user = input("Enter a GitHub username: ")
+import json
+import http.client
 
+def get_user_activity(username : str):
+    host = "api.github.com"
+    path = f"/users/{username}/events"
+    headers = {"User-Agent":"Python CLI Tool"}
+    connection = http.client.HTTPSConnection(host)
+    connection.request("GET", path, headers=headers)
+    response = connection.getresponse()
+    print(response.status, response.reason)
+    if response.status != 200:
+        raise Exception(f"GitHub API error: {response.status} {response.reason}")
+
+    data = response.read().decode('utf-8')
+    events = json.loads(data)
+    return events
