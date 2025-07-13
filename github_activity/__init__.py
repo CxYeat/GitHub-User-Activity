@@ -1,2 +1,4 @@
 from .github_api import GitHubActivity
-__all__ = ["GitHubActivity"]
+from .styles import Colors,TextStyle
+
+__all__ = ["GitHubActivity", "Colors", "TextStyle"]

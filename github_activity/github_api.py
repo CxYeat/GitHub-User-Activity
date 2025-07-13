@@ -22,7 +22,7 @@ class GitHubActivity:
         #print(json.dumps(events, indent=2))
         return events
 
-    def parse_data(events : list):
+    def parse_events(self, events : list):
         for idx,event in enumerate(events, start = 1):
             event_type = event.get("type")
             event_repo = event.get("repo").get("name")
